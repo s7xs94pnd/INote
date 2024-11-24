@@ -7,7 +7,6 @@
     tools:context=".ui.fragments.onboard.OnBoardViewPagerFragment">
 
 
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
         android:layout_width="342dp"
@@ -21,10 +20,10 @@
         app:lottie_rawRes="@raw/anim_onboard_1" />
 
     <TextView
-        android:layout_marginTop="88dp"
         android:id="@+id/title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
         android:text="title 1"
         android:textAlignment="center"
         android:textSize="32sp"
@@ -34,10 +33,10 @@
         app:layout_constraintTop_toBottomOf="@+id/lottie" />
 
     <TextView
-        android:layout_marginTop="28dp"
         android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="title 2"
         android:textAlignment="center"
         android:textSize="14sp"
