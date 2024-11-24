@@ -30,25 +30,39 @@ class OnBoardFragment : Fragment() {
         initAdapterOnBoarding()
     }
 
-    private fun setUpListeners() = with(binding) {
-
+    private fun setUpListeners() {
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                //todo понять что это такое
+                // если эта страница последняя по индексу
+                if (position == 2) {
+                    binding.btnSkip.visibility = View.GONE
+                    binding.btnStart.visibility = View.VISIBLE
+                    binding.btnNext.visibility = View.GONE
+                } else if (position == 0) {
+                    binding.btnBack.visibility = View.GONE
+                } else {
+                    binding.btnBack.visibility = View.VISIBLE
+                    binding.btnSkip.visibility = View.VISIBLE
+                    binding.btnStart.visibility = View.GONE
+                    binding.btnNext.visibility = View.VISIBLE
+
+                }
             }
         })
 
-        btnSkip.setOnClickListener {
-            //todo implementation skip btn
+        // реализация кнопок
+        binding.btnSkip.setOnClickListener {
+            binding.viewPager2.setCurrentItem( 2, true)
         }
-
-        btnStart.setOnClickListener {
+        binding.btnNext.setOnClickListener {
+            binding.viewPager2.setCurrentItem(binding.viewPager2.currentItem + 1, true)
+        }
+        binding.btnStart.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardFragment_to_INoteFragment)
         }
-
-        btnBack.setOnClickListener {
-            //todo implementation start btn
+        binding.btnBack.setOnClickListener {
+            binding.viewPager2.setCurrentItem(binding.viewPager2.currentItem - 1, true)
         }
     }
 
