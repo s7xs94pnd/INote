@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.inote.R
 import com.example.inote.databinding.FragmentOnBoardBinding
 import com.example.inote.ui.adapters.OnBoardAdapter
+import com.example.inote.ui.utils.AppSittings
 
 
 class OnBoardFragment : Fragment() {
@@ -60,6 +61,11 @@ class OnBoardFragment : Fragment() {
         }
         binding.btnStart.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardFragment_to_INoteFragment)
+            // при нажатии на кнопку старт
+            val onBording = AppSittings()
+            onBording.helper(requireContext())
+            onBording.isOnBoardShown = true //мы меняй значения
+            // чтобы каждый раз так много не писать можно это сделать в Singleton
         }
         binding.btnBack.setOnClickListener {
             binding.viewPager2.setCurrentItem(binding.viewPager2.currentItem - 1, true)
